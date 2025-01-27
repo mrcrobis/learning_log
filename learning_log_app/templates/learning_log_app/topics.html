@@ -1,14 +1,20 @@
 {% extends "learning_log_app/base.html" %}
 
 {% block content %}
+    <br>
+    <br>
     Tópicos: 
-    
+
     <ul>
         {% for topic in topics %}
-            <li>{{ topic }}</li>
+            <li>
+                <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+            </li>
         {% empty %}
             <li>Não há tópicos</li>
         {% endfor %}
     </ul>
+
+    <a href="{% url 'new_topic' %}">Adicionar novos tópicos</a>
 
 {% endblock content %}
